@@ -25,6 +25,7 @@ jobs:
     needs: [sonarcloud]
     env:
       REPO: ${{ secrets.DOCKER_REPO }}
+      TIMESTAMP: ${{ date "+%Y-%m-%d-%H:%M" }}:  
 
     steps:
       - uses: actions/checkout@v1
@@ -35,6 +36,6 @@ jobs:
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker image
-        run: docker build -t $REPO:latest -t $REPO:${GITHUB_SHA::8} .
+        run: docker build -t $REPO:latest -t $REPO:${TIMESTAMP} .
       - name: Publish Docker image
         run: docker push $REPO
