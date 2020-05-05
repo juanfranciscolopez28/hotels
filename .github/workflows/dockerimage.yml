@@ -25,7 +25,7 @@ jobs:
     needs: [sonarcloud]
     env:
       REPO: ${{ secrets.DOCKER_REPO }}
-      TIMESTAMP: ${{ date "+%Y-%m-%d-%H:%M" }}:  
+      TIMESTAMP: ${{ date "+%Y-%m-%d-%H:%M" }}
 
     steps:
       - uses: actions/checkout@v1
