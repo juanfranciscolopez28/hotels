@@ -15,7 +15,7 @@ jobs:
       with:
         java-version: '11'
     - name: Analyze with SonarCloud
-      run: mvn -B verify sonar:sonar -Dsonar.projectKey=cipote -Dsonar.organization=cipote -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+      run: mvn -B verify sonar:sonar -Dsonar.projectKey=hotels -Dsonar.organization=hotels -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
